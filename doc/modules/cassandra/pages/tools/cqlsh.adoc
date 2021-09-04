@@ -38,7 +38,7 @@ modules that are central to the performance of `COPY`.
 == cqlshrc
 
 The `cqlshrc` file holds configuration options for `cqlsh`. 
-By default, the file is locagted the user's home directory at `~/.cassandra/cqlsh`, but a
+By default, the file is located the user's home directory at `~/.cassandra/cqlsh`, but a
 custom location can be specified with the `--cqlshrc` option.
 
 Example config values and documentation can be found in the
