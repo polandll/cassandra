@@ -9,7 +9,7 @@ log before being written to a memtable. This provides durability in the
 case of unexpected shutdown. On startup, any mutations in the commit log
 will be applied to memtables.
 
-All mutations write optimized by storing in commitlog segments, reducing
+All mutations are write optimized by storing in commitlog segments, reducing
 the number of seeks needed to write to disk. Commitlog Segments are
 limited by the `commitlog_segment_size_in_mb` option, once the size is
 reached, a new commitlog segment is created. Commitlog segments can be
