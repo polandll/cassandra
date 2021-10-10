@@ -42,7 +42,7 @@ uses a simpler last write wins model where every mutation is timestamped
 (including deletes) and then the latest version of data is the "winning"
 value. Formally speaking, Cassandra uses a Last-Write-Wins Element-Set
 conflict-free replicated data type for each CQL row, or 
-https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type LWW-Element-Set_(Last-Write-Wins-Element-Set)[LWW-Element-Set
+https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type#LWW-Element-Set_(Last-Write-Wins-Element-Set)[LWW-Element-Set
 CRDT], to resolve conflicting mutations on replica sets.
 
 === Consistent Hashing using a Token Ring
