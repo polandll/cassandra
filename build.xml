@@ -429,7 +429,7 @@
         </exec>
     </target>
 
-    <target name="gen-doc" description="Generate documentation" depends="gen-asciidoc" unless="ant.gen-doc.skip">
+    <target name="gen-doc" description="Generate documentation" depends="gen-asciidoc,generate-cql-html" unless="ant.gen-doc.skip">
         <exec executable="make" osfamily="unix" dir="${doc.dir}">
             <arg value="html"/>
         </exec>

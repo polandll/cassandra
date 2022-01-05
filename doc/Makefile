@@ -15,7 +15,7 @@ GENERATE_NODETOOL_DOCS = ./scripts/gen-nodetool-docs.py
 MAKE_CASSANDRA_YAML = ./scripts/convert_yaml_to_adoc.py ../conf/cassandra.yaml ./modules/cassandra/pages/configuration/cass_yaml_file.adoc
 
 .PHONY: html
-html: generate-adocs
+html:
 	@# hack until a local basic antora build is put in
 
 .PHONY: gen-asciidoc
