@@ -1,5 +1,7 @@
 = Query vector data with CQL
 
+== Simple query 
+
 To query data using Vector Search, use a `SELECT` query: 
 
 [tabs]
@@ -9,7 +11,7 @@ CQL::
 --
 [source,cql]
 ----
-include::cassandra:example$CQL/sai/select-vsearch-cycling.cql[]
+include::cassandra:example$CQL/sai/select-vsearch-cycling.cql[tag=simple-query]
 ----
 --
 Result::
@@ -28,3 +30,46 @@ The limit has to be 1,000 or fewer.
 ====
 
 Scrolling to the right on the results shows the comments from the table that most closely matched the embeddings used for the query.
+
+== Similarity query
+
+To obtain the similarity calculation of the best scoring node closest to the query data as part of the results, use a modified SELECT query:
+
+====
+CQL::
++
+--
+[source,cql]
+----
+include::cassandra:example$CQL/sai/select-vsearch-cycling.cql[tag=similarity-query]
+----
+--
+Result::
++
+--
+[source,cql]
+----
+include::cassandra:example$RESULTS/sai/select-vsearch-cycling-similarity.result[]
+----
+--
+====
+
+The supported functions for this type of query are:
+
+* similarity_dot_product
+* similarity_cosine
+* similarity_euclidean
+
+with the parameters of (<vector_column>, <embedding_value>). Both parameters represent vectors.
+
+Vector Search utilizes Approximate Nearest Neighbor (ANN) that in most cases yields results almost as good as the exact match. 
+The scaling is superior to Exact Nearest Neighbor (KNN).
+
+Least-similar searches are not supported.
+
+Vector Search works optimally on tables with no overwrites or deletions of the comment_vector column. 
+For an comment_vector column with changes, expect slower search results.
+
+The embeddings were randomly generated in this example. 
+Generally, you would run both your source documents/contents through an embeddings generator, as well as the query you were asking to match. 
+This example is simply to show the mechanics of how to use CQL to create vector search data objects.
