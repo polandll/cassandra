@@ -1,0 +1,7 @@
+ comment                                       | system.similarity_cosine(comment_vector, [0.2, 0.15, 0.3, 0.2, 0.05])
+-----------------------------------------------+-----------------------------------------------------------------------
+             Second rest stop was out of water |                                                              0.949701
+ The gift certificate for winning was the best |                                                               0.86062
+ The gift certificate for winning was the best |                                                               0.86062
+
+(3 rows)
